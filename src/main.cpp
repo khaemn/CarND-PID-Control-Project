@@ -37,10 +37,10 @@ int main() {
   PID throttle_pid;
 
   const double time_delta{0.02};
-  steer_pid.Init(0.2, 0.0, 1., time_delta);
-  throttle_pid.Init(0.03, 0.0005, 0.005, time_delta);
+  steer_pid.Init(0.2, 0.0, 0.02, time_delta);
+  throttle_pid.Init(0.03, 0.01, 0.0003, time_delta);
 
-  const double desired_speed_mph = 20.;
+  const double desired_speed_mph = 35.55;
 
   h.onMessage([&steer_pid, &throttle_pid, &desired_speed_mph]
               (uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length,
