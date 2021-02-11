@@ -8,23 +8,21 @@ PID::PID() {}
 
 PID::~PID() {}
 
-void PID::Init(double Kp_, double Ki_, double Kd_) {
-  /**
-   * TODO: Initialize PID coefficients (and errors, if needed)
-   */
-
+void PID::Init(double Kp_, double Ki_, double Kd_, double t_) {
+  Kp = Kp_;
+  Ki = Ki_;
+  Kd = Kd_;
+  t = t_;
 }
 
-void PID::UpdateError(double cte) {
-  /**
-   * TODO: Update PID errors based on cte.
-   */
-
+void PID::UpdateError(double error) {
+  p_error = Kp * error;
+  d_error = Kd * (error - prev_error) / t;
+  integral_error_sum += error * t;
+  prev_error = error;
+  i_error = Ki * integral_error_sum;
 }
 
 double PID::TotalError() {
-  /**
-   * TODO: Calculate and return the total error
-   */
-  return 0.0;  // TODO: Add your total error calc here!
+  return -1*(p_error + i_error + d_error);
 }
