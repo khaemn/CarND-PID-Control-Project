@@ -36,11 +36,12 @@ int main() {
   PID steer_pid;
   PID throttle_pid;
 
-  const double time_delta{0.02};
-  steer_pid.Init(0.045, 0.0025, 0.025, time_delta);
-  throttle_pid.Init(0.03, 0.01, 0.0003, time_delta);
-
   const double desired_speed_mph = 50.00;
+  const double time_delta{0.02};
+
+  steer_pid.Init(0.062, 0.2, 0.02, time_delta);
+
+  throttle_pid.Init(0.03, 0.01, 0.0003, time_delta);
 
   h.onMessage([&steer_pid, &throttle_pid, &desired_speed_mph]
               (uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length,
@@ -65,7 +66,7 @@ int main() {
           steer_pid.UpdateError(cte);
           throttle_pid.UpdateError(speed - desired_speed_mph);
           
-          const double steer_value = std::max(-0.9, std::min(.9, steer_pid.TotalError()));
+          const double steer_value = std::max(-1., std::min(1., steer_pid.TotalError()));
           const double throttle = std::max(0., std::min(1., throttle_pid.TotalError()));
 
           // DEBUG
