@@ -36,10 +36,10 @@ int main() {
   PID steer_pid;
   PID throttle_pid;
 
-  const double desired_speed_mph = 50.00;
+  const double desired_speed_mph = 55.00;
   const double time_delta{0.02};
 
-  steer_pid.Init(0.062, 0.2, 0.02, time_delta);
+  steer_pid.Init(0.057, 0.08, 0.019, time_delta);
 
   throttle_pid.Init(0.03, 0.01, 0.0003, time_delta);
 
