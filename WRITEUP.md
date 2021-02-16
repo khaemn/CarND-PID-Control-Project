@@ -61,7 +61,7 @@ I was not able to found any set of Kp, Ki, Kd, that would keep the car on track 
 
 ### Conclusions
 
-I have tested about 30 sets of the PID coeffitients for speed controller, and over 200-250 sets of the PID coeffitients for the steering controller, using the tuning algorithm described above, and was able to tune a parameter set, that drives ok in range 25..35 MPH. Unfortunately, I did not manage to tune the regulators enough to drive faster than 60 MPH (and even at that point the car was already behaving unsafely at at the steep curves), so, indeed, the tuning of a PID regulator is not a simple task and requires a lot of time and efforts to be done properly, especially for dynamic and unstable systems such as a moving car.
+I have tested about 30 sets of the PID coeffitients for speed controller, and over 200-250 sets of the PID coeffitients for the steering controller, using the tuning algorithm described above, and was able to tune a parameter set, that drives ok in range 25..45 MPH. Unfortunately, I did not manage to tune the regulators enough to drive faster than 70 MPH (and even at that point the car was already behaving unsafely at at the steep curves), so, indeed, the tuning of a PID regulator is not a simple task and requires a lot of time and efforts to be done properly, especially for dynamic and unstable systems such as a moving car.
 
 
 
